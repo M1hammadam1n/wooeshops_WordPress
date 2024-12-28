@@ -33,7 +33,7 @@ $content_class = is_search() ? 'col-12' : 'col-lg-9 col-md-8';
             </div>
 
             <div class="col-12">
-                <hr>
+                <hr>	
             </div>
 		<?php else: ?>
 			<?php do_action( 'woocommerce_archive_description' ); ?>

@@ -22,13 +22,13 @@
             <div class="carousel-inner">
 				<?php $i = 0;
 				foreach ( $slider as $post ): setup_postdata( $post ); ?>
-                    <div class="carousel-item <?php if ( $i == 0 ): ?>active<?php endif; ?>">
+                    <div class="carousel-item <?php if ($i == 0): ?>active<?php endif; ?>">
                         <img src="<?php the_post_thumbnail_url( 'full' ); ?>"
                              class="d-block w-100"
                              alt="<?php the_title() ?>">
                         <div class="carousel-caption d-none d-md-block">
                             <h2><?php the_title() ?></h2>
-							<?php the_content( '' ); ?>
+                            <?php the_content( '' ); ?>
                         </div>
                     </div>
 					<?php $i ++; endforeach; ?>
@@ -45,108 +45,351 @@
 	<?php endif; ?>
 
     <section class="advantages">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row mb-5">
                 <div class="col-12">
                     <h2 class="section-title">
-                        <span>Наши преимущества</span>
+                        <span class="bg-dark">Наши преимущества</span>
                     </h2>
                 </div>
             </div>
 
             <div class="row gy-3 items">
                 <div class="col-lg-3 col-sm-6">
-                    <div class="item">
+                <div class="item bg-dark">
                         <p>
                             <i class="fas fa-shipping-fast"></i>
                         </p>
-                        <p>Прямые поставки от производителей брендов</p>
+                        <p class="bg-dark">Прямые поставки от производителей брендов</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-sm-6">
-                    <div class="item">
+                <div class="item bg-dark">
                         <p>
                             <i class="fas fa-cubes"></i>
                         </p>
-                        <p>Широкий ассортимент товаров. Более 10 тыс. наименований</p>
+                        <p class="bg-dark">Широкий ассортимент товаров. Более 10 тыс. наименований</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-sm-6">
-                    <div class="item">
+                <div class="item bg-dark">
                         <p>
                             <i class="fas fa-hand-holding-usd"></i>
                         </p>
-                        <p>Приятные и конкурентные цены</p>
+                        <p class="bg-dark">Приятные и конкурентные цены</p>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6">
-                    <div class="item">
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="item bg-dark">
                         <p>
                             <i class="fa-solid fa-user-graduate"></i>
                         </p>
-                        <p>Консультации от профессионалов</p>
+                        <p class="bg-dark">Консультации от профессионалов</p>
                     </div>
                 </div>
             </div>
-
-        </div>
-    </section>
-
-<!-- https://woo.com/document/woocommerce-shortcodes/#product-category -->
-    <section class="home-categories">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-12">
-                    <h2 class="section-title">
-                        <span><?php _e( 'Categories', 'wooeshop' ) ?></span>
-                    </h2>
-                </div>
-            </div>
-
-	        <?php echo do_shortcode( '[product_categories hide_empty="0"]' ) ?>
 
         </div>
     </section>
 
     <section class="featured-products">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row mb-5">
                 <div class="col-12">
                     <h2 class="section-title">
-                        <span><?php _e( 'Featured products', 'wooeshop' ) ?></span>
+                        <span class="bg-dark">Рекомендуемые товары</span>
                     </h2>
                 </div>
             </div>
 
-			<?php echo do_shortcode( '[featured_products limit="8"]' ) ?>
+            <div class="row">
 
+                    <?php echo do_shortcode( '[Featured_products]')?>
+
+                <!-- <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                    <div class="product-card">
+                        <div class="product-card-offer">
+                            <div class="offer-hit">Hit</div>
+                            <div class="offer-new">New</div>
+                        </div>
+                        <div class="product-thumb">
+                            <a href="product.html"><img
+                                        src="<?php echo get_template_directory_uri() ?>/assets/img/products/1.jpg"
+                                        alt=""></a>
+                        </div>
+                        <div class="product-details">
+                            <h4>
+                                <a href="product.html">Product 1 Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing.</a>
+                            </h4>
+                            <p class="product-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                Placeat, aperiam!</p>
+                            <div class="product-bottom-details d-flex justify-content-between">
+                                <div class="product-price">
+                                    <small>$70</small>
+                                    $65
+                                </div>
+                                <div class="product-links">
+                                    <a href="#" class="btn btn-outline-secondary add-to-cart"><i
+                                                class="fas fa-shopping-cart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
         </div>
     </section>
 
     <section class="new-products">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row mb-5">
                 <div class="col-12">
                     <h2 class="section-title">
-                        <span><?php _e( 'Recent Products', 'wooeshop' ); ?></span>
+                        <span class="bg-dark">Новинки</span>
                     </h2>
                 </div>
             </div>
 
-	        <?php echo do_shortcode( '[wooeshop_recent_products limit="8"]' ); ?>
+            <div class="owl-carousel owl-theme owl-carousel-full">
+                <div class="product-card">
+                    <div class="product-card-offer">
+                        <div class="offer-hit">Hit</div>
+                        <div class="offer-new">New</div>
+                    </div>
+                    <div class="product-thumb">
+                        <a href="product.html"><img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/products/1.jpg"
+                                    alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4>
+                            <a href="product.html">Product 1 Lorem ipsum dolor, sit amet consectetur
+                                adipisicing.</a>
+                        </h4>
+                        <p class="product-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Placeat, aperiam!</p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                <small>$70</small>
+                                $65
+                            </div>
+                            <div class="product-links">
+                                <a href="#" class="btn btn-outline-secondary add-to-cart"><i
+                                            class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-offer">
+                        <div class="offer-hit">Hit</div>
+                    </div>
+                    <div class="product-thumb">
+                        <a href="product.html"><img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/products/2.jpg"
+                                    alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4>
+                            <a href="product.html">Product 2</a>
+                        </h4>
+                        <p class="product-excerpt">Lorem ipsum dolor</p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                $65
+                            </div>
+                            <div class="product-links">
+                                <a href="#" class="btn btn-outline-secondary add-to-cart"><i
+                                            class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-offer">
+                        <!-- <div class="offer-hit">Hit</div>
+						<div class="offer-new">New</div> -->
+                    </div>
+                    <div class="product-thumb">
+                        <a href="product.html"><img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/products/3.jpg"
+                                    alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4>
+                            <a href="product.html">Product 3 Lorem ipsum</a>
+                        </h4>
+                        <p class="product-excerpt">Lorem ipsum</p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                $100
+                            </div>
+                            <div class="product-links">
+                                <a href="#" class="btn btn-outline-secondary add-to-cart"><i
+                                            class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-offer">
+                        <div class="offer-hit">Hit</div>
+                    </div>
+                    <div class="product-thumb">
+                        <a href="product.html"><img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/products/4.jpg"
+                                    alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4>
+                            <a href="product.html">Product 4</a>
+                        </h4>
+                        <p class="product-excerpt">Lorem ipsum dolor</p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                <small>$70</small>
+                                $65
+                            </div>
+                            <div class="product-links">
+                                <a href="#" class="btn btn-outline-secondary add-to-cart"><i
+                                            class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-offer">
+                        <div class="offer-hit">Hit</div>
+                        <div class="offer-new">New</div>
+                    </div>
+                    <div class="product-thumb">
+                        <a href="product.html"><img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/products/5.jpg"
+                                    alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4>
+                            <a href="product.html">Product 5 Lorem ipsum dolor, sit amet consectetur
+                                adipisicing.</a>
+                        </h4>
+                        <p class="product-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Placeat, aperiam!</p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                <small>$70</small>
+                                $65
+                            </div>
+                            <div class="product-links">
+                                <a href="#" class="btn btn-outline-secondary add-to-cart"><i
+                                            class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-offer">
+                        <div class="offer-hit">Hit</div>
+                        <div class="offer-new">New</div>
+                    </div>
+                    <div class="product-thumb">
+                        <a href="product.html"><img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/products/6.jpg"
+                                    alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4>
+                            <a href="product.html">Product 6</a>
+                        </h4>
+                        <p class="product-excerpt"></p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                <small>$70</small>
+                                $65
+                            </div>
+                            <div class="product-links">
+                                <a href="#" class="btn btn-outline-secondary add-to-cart"><i
+                                            class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-offer">
+                        <div class="offer-hit">Hit</div>
+                        <div class="offer-new">New</div>
+                    </div>
+                    <div class="product-thumb">
+                        <a href="product.html"><img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/products/7.jpg"
+                                    alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4>
+                            <a href="product.html">Product 7</a>
+                        </h4>
+                        <p class="product-excerpt">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Placeat, aperiam!</p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                <small>$70</small>
+                                $65
+                            </div>
+                            <div class="product-links">
+                                <a href="#" class="btn btn-outline-secondary add-to-cart"><i
+                                            class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-card-offer">
+                        <div class="offer-hit">Hit</div>
+                        <div class="offer-new">New</div>
+                    </div>
+                    <div class="product-thumb">
+                        <a href="product.html"><img
+                                    src="<?php echo get_template_directory_uri() ?>/assets/img/products/8.jpg"
+                                    alt=""></a>
+                    </div>
+                    <div class="product-details">
+                        <h4>
+                            <a href="product.html">Product 8 Lorem</a>
+                        </h4>
+                        <p class="product-excerpt">Lorem ipsum dolor</p>
+                        <div class="product-bottom-details d-flex justify-content-between">
+                            <div class="product-price">
+                                <small>$70</small>
+                                $65
+                            </div>
+                            <div class="product-links">
+                                <a href="#" class="btn btn-outline-secondary add-to-cart"><i
+                                            class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </section>
 
-    <section class="about-us" id="about">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-12">
-                    <h2 class="section-title">
-                        <span>About Us</span>
+    <section class="about-us bg-dark" id="about">
+        <div class="container fluid">
+            <div class="row mb-5 ">
+                <div class="col-12 " >
+                    <h2 class="section-title ">
+                        <span class="bg-dark">About Us</span>
                     </h2>
                 </div>
             </div>
